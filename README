@@ -1,0 +1,4 @@
+Pour récupérer la conf, cloner le dossier dans ~./vim puis faire un lien symbolique:
+
+ln -s ~/.vim/vimrc ~/.vimrc
+
