@@ -1,0 +1,12 @@
+[submodule "bundle/colorschemes"]
+	path = bundle/colorschemes
+	url = git@github.com:flazz/vim-colorschemes.git
+[submodule "bundle/Yankring"]
+	path = bundle/Yankring
+	url = https://github.com/vim-scripts/YankRing.vim.git
+[submodule "bundle/RainbowParenthesis"]
+	path = bundle/RainbowParenthesis
+	url = https://github.com/kien/rainbow_parentheses.vim.git
+[submodule "bundle/gundo"]
+	path = bundle/gundo
+	url = http://github.com/sjl/gundo.vim.git
