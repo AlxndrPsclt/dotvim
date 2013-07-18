@@ -1,6 +1,11 @@
 execute pathogen#infect()
 syntax on
-filetype plugin on
+
+"filetype plugin on
+filetype plugin indent on
+
+"Utiliser des tabulations de longueur 4
+set ts=4 sts=4 sw=4 noexpandtab
 
 " Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:▸\ ,eol:¬
@@ -23,3 +28,12 @@ inoremap jj <ESC>
 
 "Racourcis pour gundo
 nnoremap <F6> :GundoToggle<CR>
+
+"Racourcis pour Nerdtree
+noremap <F1> :NERDTreeToggle<CR>
+
+"Racourcis pour naviguer entre les splits screens
+nmap <silent> <A-Up> :wincmd k<CR>
+nmap <silent> <A-Down> :wincmd j<CR>
+nmap <silent> <A-Left> :wincmd h<CR>
+nmap <silent> <A-Right> :wincmd l<CR>
