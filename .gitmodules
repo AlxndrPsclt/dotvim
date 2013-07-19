@@ -16,6 +16,3 @@
 [submodule "bundle/vim-jedi"]
 	path = bundle/vim-jedi
 	url = https://github.com/davidhalter/jedi-vim.git
-[submodule "vim-multiple-cursors"]
-	path = vim-multiple-cursors
-	url = https://github.com/terryma/vim-multiple-cursors.git
