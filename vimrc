@@ -30,10 +30,16 @@ inoremap jj <ESC>
 nnoremap <F6> :GundoToggle<CR>
 
 "Racourcis pour Nerdtree
-noremap <F1> :NERDTreeToggle<CR>
+imap <F1> jj :NERDTreeToggle<CR>
+nmap <F1> :NERDTreeToggle<CR>
+"noremap <F1> :NERDTreeToggle<CR>
 
 "Racourcis pour naviguer entre les splits screens
 nmap <silent> <A-Up> :wincmd k<CR>
 nmap <silent> <A-Down> :wincmd j<CR>
 nmap <silent> <A-Left> :wincmd h<CR>
 nmap <silent> <A-Right> :wincmd l<CR>
+
+"Permet d'afficher toujours le nom du fichier en bas
+set modeline
+set ls=2

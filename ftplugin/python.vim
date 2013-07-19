@@ -5,6 +5,7 @@ setlocal shiftwidth=4
 setlocal expandtab
 
 set foldmethod=indent
+%foldo!
 
 "Permet de ne pas avoie l'autocomplétion automatique, mais seulement quand on
 "le demande
