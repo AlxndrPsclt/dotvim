@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_cnt =4
 let g:netrw_dirhist_1='/home/alex/Atelier/TestVim'
 let g:netrw_dirhist_2='/etc/fonts/conf.avail'
 let g:netrw_dirhist_3='/etc/fonts/conf.d'
+let g:netrw_dirhist_4='/home/alex'
