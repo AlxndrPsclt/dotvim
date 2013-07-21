@@ -15,7 +15,7 @@ set list!
 set t_Co=256
 
 "Utiliser le theme vivid chalk
-colorscheme vividchalk
+colorscheme slate
 
 "Rajoutte une règle horisontale sur la ligne courante
 set cursorline
@@ -27,7 +27,8 @@ set number
 inoremap jj <ESC>
 
 "Racourcis pour gundo
-nnoremap <F6> :GundoToggle<CR>
+imap <F2> jj :GundoToggle<CR>
+nmap <F2> :GundoToggle<CR>
 
 "Racourcis pour Nerdtree
 imap <F1> jj :NERDTreeToggle<CR>
