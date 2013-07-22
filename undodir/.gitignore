@@ -1,0 +1,3 @@
+# this file just makes sure that the undodir is created via git - although the files inside should not be v-controlled.
+*
+!.gitignore
