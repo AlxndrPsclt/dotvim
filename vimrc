@@ -21,7 +21,16 @@ colorscheme slate
 set cursorline
 
 "Rajoutte les numéros de ligne
-set number
+set relativenumber
+
+"Set my leader key
+let mapleader = ","
+
+"Supprimer les flèches pour utiliser hjkl"
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
 
 "Utiliser jj au lieu de Echap pour quitter le mode inser
 inoremap jj <ESC>
@@ -49,3 +58,39 @@ set undodir=~/.vim/undodir
 set undofile
 set undolevels=1000 "maximum number of changes that can be undone
 set undoreload=10000 "maximum number lines to save for undo on a buffer reload"
+
+nnoremap <C-j> :m .+1<CR>==
+nnoremap <C-k> :m .-2<CR>==
+inoremap <C-j> <Esc>:m .+1<CR>==gi
+inoremap <C-k> <Esc>:m .-2<CR>==gi
+vnoremap <C-j> :m '>+1<CR>gv=gv
+vnoremap <C-k> :m '<-2<CR>gv=gv
+
+nnoremap t :tabs<CR>
+
+" Source the vimrc file after saving it
+if has("autocmd")
+	autocmd bufwritepost .vimrc source $MYVIMRC
+endif
+
+"Permet de changer un mot et de sortir automatiquement du mode insertion à la
+"fin de ce mot
+nmap <leader>c :inoremap <lt>Space> <lt>Space><lt>Esc>:iunmap <lt>lt>Space><lt>CR><CR> cw
+
+let @a='gg/li\ class="show"^Mk$$dgg'
+let @b='gg/li\ class="show"^Mhd/a\ href^M.d/>^Mx/<^Md$j0d/</<80>kb\/li>^M....dddddq'
+let @c='gg/<li\ class=^MdGvgg<'
+let @d='@a@b@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@c:w'
+
+:nnoremap <leader>l A<CR><ESC>
+:nnoremap <leader>L I<CR><ESC>
+
+function! NumberToggle()
+	if(&relativenumber == 1)
+		set number
+	else
+		set relativenumber
+	endif
+endfunc
+
+nnoremap <leader>re :call NumberToggle()<cr>
