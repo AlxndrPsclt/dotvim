@@ -1,3 +1,4 @@
+call pathogen#incubate()
 execute pathogen#infect()
 syntax on
 
@@ -76,11 +77,6 @@ endif
 "Permet de changer un mot et de sortir automatiquement du mode insertion à la
 "fin de ce mot
 nmap <leader>c :inoremap <lt>Space> <lt>Space><lt>Esc>:iunmap <lt>lt>Space><lt>CR><CR> cw
-
-let @a='gg/li\ class="show"^Mk$$dgg'
-let @b='gg/li\ class="show"^Mhd/a\ href^M.d/>^Mx/<^Md$j0d/</<80>kb\/li>^M....dddddq'
-let @c='gg/<li\ class=^MdGvgg<'
-let @d='@a@b@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@c:w'
 
 :nnoremap <leader>l A<CR><ESC>
 :nnoremap <leader>L I<CR><ESC>
