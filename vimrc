@@ -1,4 +1,3 @@
-call pathogen#incubate()
 execute pathogen#infect()
 syntax on
 

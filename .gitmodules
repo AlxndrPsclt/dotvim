@@ -34,3 +34,6 @@
 [submodule "bundle/vim-surround"]
 	path = bundle/vim-surround
 	url = https://github.com/tpope/vim-surround.git
+[submodule "bundle/thenerdtree"]
+	path = bundle/thenerdtree
+	url = https://github.com/scrooloose/nerdtree.git
