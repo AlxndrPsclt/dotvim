@@ -89,3 +89,6 @@ function! NumberToggle()
 endfunc
 
 nnoremap <leader>re :call NumberToggle()<cr>
+
+"Tells yankring where to store yankring history"
+let g:yankring_history_dir = '/home/alex/.vim/bundle/Yankring'
