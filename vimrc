@@ -1,8 +1,11 @@
 execute pathogen#infect()
+set nocompatible
 syntax on
 
 "filetype plugin on
-filetype plugin indent on
+filetype on
+filetype indent on
+filetype plugin on
 
 "Utiliser des tabulations de longueur 4
 set ts=4 sts=4 sw=4 noexpandtab
