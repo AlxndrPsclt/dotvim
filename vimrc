@@ -7,6 +7,11 @@ filetype on
 filetype indent on
 filetype plugin on
 
+"Mettre les fichier swap .swp et .swo dans un dossier spécifique et non dans
+"le dossier courant
+set backupdir=/tmp
+set directory=/tmp
+
 "Utiliser des tabulations de longueur 4
 set ts=4 sts=4 sw=4 noexpandtab
 
