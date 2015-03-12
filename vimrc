@@ -23,7 +23,7 @@ set list!
 set t_Co=256
 
 "Utiliser le theme vivid chalk
-colorscheme slate
+colorscheme torte
 
 "Rajoutte une règle horisontale sur la ligne courante
 set cursorline
@@ -74,12 +74,16 @@ inoremap <C-k> <Esc>:m .-2<CR>==gi
 vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
 
-nnoremap t :tabs<CR>
+"nnoremap t :tabs<CR>
 
 " Source the vimrc file after saving it
 if has("autocmd")
 	autocmd bufwritepost .vimrc source $MYVIMRC
 endif
+
+" Toggle spell checking on and off with `,s`
+nmap <silent> <leader>s :set spell!<CR>
+
 
 "Permet de changer un mot et de sortir automatiquement du mode insertion à la
 "fin de ce mot
