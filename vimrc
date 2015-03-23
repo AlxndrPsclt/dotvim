@@ -1,5 +1,35 @@
-execute pathogen#infect()
+"execute pathogen#infect()
 set nocompatible
+
+"Vundle Setup
+filetype off
+set runtimepath+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'gmarik/vundle'
+
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'Raimondi/delimitMate'
+Plugin 'bling/vim-airline'
+Plugin 'ervandew/supertab'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'honza/vim-snippets'
+Plugin 'hynek/vim-python-pep8-indent'
+Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'kshenoy/vim-signature'
+Plugin 'scrooloose/nerdtree'
+Plugin 'sjl/gundo.vim'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'tomtom/tlib_vim'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-surround'
+Plugin 'vim-scripts/mru.vim'
+Plugin 'SirVer/ultisnips'
+Plugin 'wincent/command-t'
+
+call vundle#end()
+
 syntax on
 
 "filetype plugin on
@@ -91,6 +121,9 @@ nmap <leader>c :inoremap <lt>Space> <lt>Space><lt>Esc>:iunmap <lt>lt>Space><lt>C
 
 :nnoremap <leader>l A<CR><ESC>
 :nnoremap <leader>L I<CR><ESC>
+
+"Permet d'afficher la liste des jumps
+nnoremap <leader>j :jumps<CR>
 
 function! NumberToggle()
 	if(&relativenumber == 1)
