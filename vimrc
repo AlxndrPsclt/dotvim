@@ -97,6 +97,8 @@ set undofile
 set undolevels=1000 "maximum number of changes that can be undone
 set undoreload=10000 "maximum number lines to save for undo on a buffer reload"
 
+
+"Permet de déplacer automatiquement des lignes
 nnoremap <C-j> :m .+1<CR>==
 nnoremap <C-k> :m .-2<CR>==
 inoremap <C-j> <Esc>:m .+1<CR>==gi
@@ -134,6 +136,11 @@ function! NumberToggle()
 endfunc
 
 nnoremap <leader>re :call NumberToggle()<cr>
+
+"Use tabs to naviagate in ultiSnips instead of c-j, c-k
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 "Tells yankring where to store yankring history"
 let g:yankring_history_dir = '/home/alex/.vim/bundle/Yankring'
