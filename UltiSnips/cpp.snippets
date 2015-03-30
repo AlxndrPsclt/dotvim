@@ -12,22 +12,18 @@ endglobal
 
 
 snippet dox "Doxygen documentation for function" b
+
+
 // ${1:TITLE}
 
 /// ${2:Description}
-$3
-`!p
-#try:
-params_string=t[3]
-params_list = params_string.split(";\n")
-params_list = list(map(lambda x: x.strip(), params_list))
-params_list = list(map(lambda x: x.split(":",1), params_list))
-params_list = list(map(lambda x: "///@param "+x[0].strip()+" "+x[1].strip()+"\n", params_list))
-snip.rv = "".join(params_list)
-#except:
-#	snip.rv = params_string`
+$0
 endsnippet
 
-snippet test "Yesy" b
-testeCe truc $1
+snippet //p "Doxygen parameter" b
+/// @param $0
+endsnippet
+
+snippet //r "Doxygen parameter" b
+/// @return $0
 endsnippet

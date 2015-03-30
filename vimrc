@@ -52,8 +52,11 @@ set list!
 "Permet d'utiliser 256 couleurs
 set t_Co=256
 
-"Utiliser le theme vivid chalk
+"Utiliser le theme torte
 colorscheme torte
+
+"permet de laisser quelques lignes en bas du texte
+set scrolloff=8
 
 "Rajoutte une règle horisontale sur la ligne courante
 set cursorline
@@ -99,12 +102,12 @@ set undoreload=10000 "maximum number lines to save for undo on a buffer reload"
 
 
 "Permet de déplacer automatiquement des lignes
-nnoremap <C-j> :m .+1<CR>==
-nnoremap <C-k> :m .-2<CR>==
-inoremap <C-j> <Esc>:m .+1<CR>==gi
-inoremap <C-k> <Esc>:m .-2<CR>==gi
-vnoremap <C-j> :m '>+1<CR>gv=gv
-vnoremap <C-k> :m '<-2<CR>gv=gv
+nnoremap <Alt-j> :m .+1<CR>==
+nnoremap <Alt-k> :m .-2<CR>==
+inoremap <Alt-j> <Esc>:m .+1<CR>==gi
+inoremap <Alt-k> <Esc>:m .-2<CR>==gi
+vnoremap <Alt-j> :m '>+1<CR>gv=gv
+vnoremap <Alt-k> :m '<-2<CR>gv=gv
 
 "nnoremap t :tabs<CR>
 
@@ -116,10 +119,18 @@ endif
 " Toggle spell checking on and off with `,s`
 nmap <silent> <leader>s :set spell!<CR>
 
+" Allows to jump forward and backward 10 words at once
+nmap <silent> <leader>w 10w
+nmap <silent> <leader>W 10b
+
+"Correct a word with the first suggested correction
+nmap <silent> <leader>z 1z=
+
+
 
 "Permet de changer un mot et de sortir automatiquement du mode insertion à la
 "fin de ce mot
-nmap <leader>c :inoremap <lt>Space> <lt>Space><lt>Esc>:iunmap <lt>lt>Space><lt>CR><CR> cw
+nmap <leader>c :inoremap <lt>Space> <lt>Space><lt>Esc>:iunmap <lt>lt>Space><lt>CR><CR> caw
 
 :nnoremap <leader>l A<CR><ESC>
 :nnoremap <leader>L I<CR><ESC>
@@ -139,8 +150,11 @@ nnoremap <leader>re :call NumberToggle()<cr>
 
 "Use tabs to naviagate in ultiSnips instead of c-j, c-k
 let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+"let g:UltiSnipsJumpForwardTrigger="<c-a>"
+"let g:UltiSnipsJumpBackwardTrigger="<c-s>"
+
+"Edit snippets in a vertical snip
+let g:UltiSnipsEditSplit="vertical"
 
 "Tells yankring where to store yankring history"
 let g:yankring_history_dir = '/home/alex/.vim/bundle/Yankring'
