@@ -100,6 +100,9 @@ set undofile
 set undolevels=1000 "maximum number of changes that can be undone
 set undoreload=10000 "maximum number lines to save for undo on a buffer reload"
 
+"Hightlights past 80 line
+highlight OverLength ctermbg=240 ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
 
 "Permet de déplacer automatiquement des lignes
 nnoremap <Alt-j> :m .+1<CR>==
@@ -123,8 +126,10 @@ nmap <silent> <leader>s :set spell!<CR>
 nmap <silent> <leader>w 10w
 nmap <silent> <leader>W 10b
 
-"Correct a word with the first suggested correction
-nmap <silent> <leader>z 1z=
+"Correct the next erroronous with the first suggested correction
+nmap <silent> <leader>z h]s1z=
+"Skips the next error
+nmap <silent> <leader>Z ]sw
 
 
 
