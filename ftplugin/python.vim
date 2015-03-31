@@ -1,11 +1,17 @@
-setlocal tabstop=4
+setlocal tabstop=3
 setlocal softtabstop=4
 setlocal shiftwidth=4
 
 setlocal expandtab
 
 set foldmethod=indent
-%foldo!
+"%foldo!
+
+
+"Hightlights past 80 line
+highlight OverLength ctermbg=240 ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
+
 
 "Permet de ne pas avoie l'autocomplétion automatique, mais seulement quand on
 "le demande

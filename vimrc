@@ -27,6 +27,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'vim-scripts/mru.vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'wincent/command-t'
+Plugin 'luochen1990/rainbow'
 
 call vundle#end()
 
@@ -64,6 +65,7 @@ set cursorline
 "Rajoutte les numéros de ligne
 set relativenumber
 
+
 "Set my leader key
 let mapleader = ","
 
@@ -91,6 +93,9 @@ nmap <silent> <A-Down> :wincmd j<CR>
 nmap <silent> <A-Left> :wincmd h<CR>
 nmap <silent> <A-Right> :wincmd l<CR>
 
+"Toggle RainbowParenthese
+nmap <silent> <leader>r :RainbowParenthesesToggle<CR>
+
 "Permet d'afficher toujours le nom du fichier en bas
 set modeline
 set ls=2
@@ -100,10 +105,6 @@ set undofile
 set undolevels=1000 "maximum number of changes that can be undone
 set undoreload=10000 "maximum number lines to save for undo on a buffer reload"
 
-"Hightlights past 80 line
-highlight OverLength ctermbg=240 ctermfg=white guibg=#592929
-match OverLength /\%81v.\+/
-
 "Permet de déplacer automatiquement des lignes
 nnoremap <Alt-j> :m .+1<CR>==
 nnoremap <Alt-k> :m .-2<CR>==
@@ -112,7 +113,6 @@ inoremap <Alt-k> <Esc>:m .-2<CR>==gi
 vnoremap <Alt-j> :m '>+1<CR>gv=gv
 vnoremap <Alt-k> :m '<-2<CR>gv=gv
 
-"nnoremap t :tabs<CR>
 
 " Source the vimrc file after saving it
 if has("autocmd")
