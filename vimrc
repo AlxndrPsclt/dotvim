@@ -93,6 +93,16 @@ nmap <silent> <A-Down> :wincmd j<CR>
 nmap <silent> <A-Left> :wincmd h<CR>
 nmap <silent> <A-Right> :wincmd l<CR>
 
+"Resizing windows with + and -
+if bufwinnr(1)
+	map + <C-W>>
+	map - <C-W><
+endif
+
+"Toggle RainbowParenthese
+nmap <silent> <leader>r :RainbowParenthesesToggle<CR>
+
+
 "Toggle RainbowParenthese
 nmap <silent> <leader>r :RainbowParenthesesToggle<CR>
 
