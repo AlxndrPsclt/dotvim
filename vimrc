@@ -141,6 +141,24 @@ nmap <silent> <leader>z h]s1z=
 "Skips the next error
 nmap <silent> <leader>Z ]sw
 
+"Maps leader d to Jump to next digit and leader D to jump to previous digit
+nmap <silent> <leader>d /\d<CR>
+nmap <silent> <leader>D ?\d<CR>
+
+
+" copy current file name (relative/absolute) to system clipboard (Linux
+" version)
+" relative path (src/foo.txt)
+nnoremap <leader>crf :let @"=expand("%")<CR>
+
+" absolute path (/something/src/foo.txt)
+nnoremap <leader>caf :let @"=expand("%:p")<CR>
+
+" filename (foo.txt)
+nnoremap <leader>cfn :let @"=expand("%:t")<CR>
+
+" directory name (/something/src)
+nnoremap <leader>cdi :let @"=expand("%:p:h")<CR>
 
 
 "Permet de changer un mot et de sortir automatiquement du mode insertion à la
