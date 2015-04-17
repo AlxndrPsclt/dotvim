@@ -28,6 +28,8 @@ Plugin 'vim-scripts/mru.vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'wincent/command-t'
 Plugin 'luochen1990/rainbow'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-abolish'
 
 call vundle#end()
 
@@ -75,8 +77,11 @@ map <down> <nop>
 map <left> <nop>
 map <right> <nop>
 
-"Utiliser jj au lieu de Echap pour quitter le mode inser
-inoremap jj <ESC>
+"utiliser jj au lieu de echap pour quitter le mode inser
+inoremap jj <esc>
+
+"utiliser jj au lieu de echap pour quitter le mode inser
+inoremap :w <esc>:w<CR>
 
 "Racourcis pour gundo
 imap <F2> jj :GundoToggle<CR>
@@ -115,19 +120,21 @@ set undofile
 set undolevels=1000 "maximum number of changes that can be undone
 set undoreload=10000 "maximum number lines to save for undo on a buffer reload"
 
-"Permet de déplacer automatiquement des lignes
-nnoremap <Alt-j> :m .+1<CR>==
-nnoremap <Alt-k> :m .-2<CR>==
-inoremap <Alt-j> <Esc>:m .+1<CR>==gi
-inoremap <Alt-k> <Esc>:m .-2<CR>==gi
-vnoremap <Alt-j> :m '>+1<CR>gv=gv
-vnoremap <Alt-k> :m '<-2<CR>gv=gv
+" Bubble single lines (Move the lines with the keyboard)
+nmap <A-Up> [e
+nmap <A-Down> ]e
+" " Bubble multiple lines
+vmap <A-Up> [egv
+vmap <A-Down> ]egv
 
 
 " Source the vimrc file after saving it
 if has("autocmd")
 	autocmd bufwritepost .vimrc source $MYVIMRC
 endif
+
+"Edit the vimrc with leader v
+nmap <leader>v :tabedit $MYVIMRC<CR>
 
 " Toggle spell checking on and off with `,s`
 nmap <silent> <leader>s :set spell!<CR>
@@ -144,6 +151,9 @@ nmap <silent> <leader>Z ]sw
 "Maps leader d to Jump to next digit and leader D to jump to previous digit
 nmap <silent> <leader>d /\d<CR>
 nmap <silent> <leader>D ?\d<CR>
+
+"Maps leader m to show the list of marks
+nmap <silent> <leader>m :marks<CR>
 
 
 " copy current file name (relative/absolute) to system clipboard (Linux
@@ -178,8 +188,6 @@ function! NumberToggle()
 		set relativenumber
 	endif
 endfunc
-
-nnoremap <leader>re :call NumberToggle()<cr>
 
 "Use tabs to naviagate in ultiSnips instead of c-j, c-k
 let g:UltiSnipsExpandTrigger="<tab>"
