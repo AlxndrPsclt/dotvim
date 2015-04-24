@@ -28,6 +28,7 @@ Plugin 'vim-scripts/mru.vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'wincent/command-t'
 Plugin 'luochen1990/rainbow'
+Plugin 'mattn/emmet-vim'
 
 call vundle#end()
 
