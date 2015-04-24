@@ -2,3 +2,5 @@ Pour récupérer la conf, cloner le dossier dans ~./vim puis faire un lien symbo
 
 ln -s ~/.vim/vimrc ~/.vimrc
 
+Then open vim and run :PluginInstall.
+Finally, the plugin Commant-t requires compiling some separate libraries, go check it out on Commant-t github
