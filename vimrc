@@ -34,6 +34,7 @@ Plugin 'tpope/vim-abolish'
 Plugin 'rking/ag.vim'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-session'
+Plugin 'EvanDotPro/nerdtree-chmod'
 
 call vundle#end()
 
