@@ -35,6 +35,7 @@ Plugin 'rking/ag.vim'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-session'
 Plugin 'EvanDotPro/nerdtree-chmod'
+Plugin 'djoshea/vim-autoread'
 
 call vundle#end()
 
@@ -223,7 +224,7 @@ function! NumberToggle()
 	endif
 endfunc
 
-"Use tabs to naviagate in ultiSnips instead of c-j, c-k
+" tabs to naviagate in ultiSnips instead of c-j, c-k
 let g:UltiSnipsExpandTrigger="<tab>"
 "let g:UltiSnipsJumpForwardTrigger="<c-a>"
 "let g:UltiSnipsJumpBackwardTrigger="<c-s>"

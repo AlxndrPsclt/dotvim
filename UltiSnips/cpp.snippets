@@ -10,6 +10,18 @@ def doxp(params_string):
 		return params_string
 endglobal
 
+snippet /// "Creates a box for storing comments" b
+`!p
+snip.rv="//"
+snip.rv="/"*min(len(t[1])+4, 80)
+snip.rv+="\n//"
+`${1:Description}`!p
+snip.rv="//"
+
+snip.rv+="\n"
+snip.rv+="/"*min(len(t[1])+4, 80)
+`
+endsnippet
 
 snippet dox "Doxygen documentation for function" b
 
