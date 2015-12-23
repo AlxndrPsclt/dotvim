@@ -117,7 +117,7 @@ map <right> <nop>
 "utiliser jj au lieu de echap pour quitter le mode inser
 inoremap jj <esc>
 
-"utiliser jj au lieu de echap pour quitter le mode inser
+"Writing :w quickly saves the file, even in insert mode"
 inoremap :w <esc>:w<CR>
 
 "Racourcis pour gundo
@@ -129,11 +129,16 @@ imap <F1> jj :NERDTreeToggle<CR>
 nmap <F1> :NERDTreeToggle<CR>
 "noremap <F1> :NERDTreeToggle<CR>
 
-"Racourcis pour naviguer entre les splits screens
-nmap <silent> <A-Up> :wincmd k<CR>
-nmap <silent> <A-Down> :wincmd j<CR>
-nmap <silent> <A-Left> :wincmd h<CR>
-nmap <silent> <A-Right> :wincmd l<CR>
+"##Working with Splits"
+"###Create new splits in a more natural way than vim defaults"
+set splitbelow
+set splitright
+
+"###Shortcuts to navigate between splits"
+nmap <silent> <C-k> :wincmd k<CR>
+nmap <silent> <C-j> :wincmd j<CR>
+nmap <silent> <C-h> :wincmd h<CR>
+nmap <silent> <C-l> :wincmd l<CR>
 
 "Resizing windows with + and -
 if bufwinnr(1)
