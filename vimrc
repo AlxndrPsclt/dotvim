@@ -38,6 +38,10 @@ Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-session'
 Plugin 'EvanDotPro/nerdtree-chmod'
 Plugin 'djoshea/vim-autoread'
+"Some markdown glitter
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'nelstrom/vim-markdown-folding'
 
 call vundle#end()
 

@@ -10,18 +10,38 @@ snip.rv+="#"*min(len(t[1])+2, 80)
 `
 endsnippet
 
+snippet addParser "Adds all the squeleton for argument parsing" b
+import argparse
+parser = argparse.ArgumentParser(description='${1:description}')
 
-snippet padd "Adds a new argument to the arg parser" b
+${2:####################
+#Put you parser arguments here
+#parser.add_argument('-d', '--directory', 
+#                    help="Directory to parse for pdfs",
+#                    type=str, default= "./")
+####################}
+
+args = parser.parse_args()
+
+####################
+#Extract your variables here
+# directory=args.directory
+####################
+
+endsnippet
+
+snippet addArg "Adds a new argument to the arg parser" b
 parser.add_argument('-${1/^(.).*/$1/}', '--${1:filename}', 
                     help="${2:Simple help}",
                     type=${3:str}, default= ${4:None})
 $1=args.$1
 endsnippet
 
-snippet store_true "Adds a store_true parser argumant" b
+snippet storeTrue "Adds a store_true parser argumant" b
 parser.add_argument('-${1/^(.).*/$1/}', '--${1:save}', 
                     action='store_true',
                     help="${2:Saves the file}",
                     default= ${4:False})
 $1=args.$1
 endsnippet
+
