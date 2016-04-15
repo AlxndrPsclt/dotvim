@@ -39,7 +39,10 @@ Plugin 'xolox/vim-session'
 Plugin 'EvanDotPro/nerdtree-chmod'
 Plugin 'djoshea/vim-autoread'
 Plugin 'tmux-plugins/vim-tmux-focus-events'
-
+"Some markdown glitter
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'nelstrom/vim-markdown-folding'
 
 call vundle#end()
 
