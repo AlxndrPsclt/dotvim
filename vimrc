@@ -38,6 +38,8 @@ Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-session'
 Plugin 'EvanDotPro/nerdtree-chmod'
 Plugin 'djoshea/vim-autoread'
+Plugin 'tmux-plugins/vim-tmux-focus-events'
+
 
 call vundle#end()
 
@@ -135,10 +137,10 @@ set splitbelow
 set splitright
 
 "###Shortcuts to navigate between splits"
-nmap <silent> <C-k> :wincmd k<CR>
-nmap <silent> <C-j> :wincmd j<CR>
-nmap <silent> <C-h> :wincmd h<CR>
-nmap <silent> <C-l> :wincmd l<CR>
+nmap <leader>8 :wincmd k<CR>
+nmap <leader>2 :wincmd j<CR>
+nmap <leader>4 :wincmd h<CR>
+nmap <leader>6 :wincmd l<CR>
 
 "Resizing windows with + and -
 if bufwinnr(1)
@@ -163,11 +165,11 @@ set undolevels=1000 "maximum number of changes that can be undone
 set undoreload=10000 "maximum number lines to save for undo on a buffer reload"
 
 " Bubble single lines (Move the lines with the keyboard)
-nmap <A-Up> [e
-nmap <A-Down> ]e
+nmap <Esc>[1;3A ddkP
+nmap <Esc>[1;3B ddp
 " " Bubble multiple lines
-vmap <A-Up> [egv
-vmap <A-Down> ]egv
+vmap <Esc>[1;3A xkP`[V`]
+vmap <Esc>[1;3B xp`[V`]
 
 
 " Source the vimrc file after saving it
@@ -241,3 +243,9 @@ let g:UltiSnipsEditSplit="vertical"
 
 "Tells yankring where to store yankring history"
 let g:yankring_history_dir = '/home/alex/.vim/bundle/Yankring'
+
+
+"Some Ocaml shit
+let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
+execute "set rtp+=" . g:opamshare . "/merlin/vim"
+imap <leader>l <C-x><C-o>
