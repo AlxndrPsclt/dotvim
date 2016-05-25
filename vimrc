@@ -43,6 +43,8 @@ Plugin 'tmux-plugins/vim-tmux-focus-events'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'nelstrom/vim-markdown-folding'
+"Elixir plugin
+Plugin 'elixir-lang/vim-elixir'
 
 call vundle#end()
 
