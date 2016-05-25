@@ -42,6 +42,9 @@ Plugin 'djoshea/vim-autoread'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'nelstrom/vim-markdown-folding'
+Plugin 'junegunn/vim-easy-align'
+Plugin 'davidhalter/jedi-vim'
+Plugin 'jistr/vim-nerdtree-tabs'
 
 call vundle#end()
 
@@ -58,7 +61,7 @@ set backupdir=/tmp
 set directory=/tmp
 
 "Utiliser des tabulations de longueur 4
-set ts=4 sts=4 sw=4 noexpandtab
+set ts=2 sts=2 sw=2 noexpandtab
 
 " Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:▸\ ,eol:¬
@@ -68,7 +71,8 @@ set list!
 set t_Co=256
 
 "Utiliser le theme torte
-colorscheme torte
+"colorscheme torte
+colorscheme pride
 
 "permet de laisser quelques lignes en bas du texte
 set scrolloff=8
@@ -78,6 +82,7 @@ set cursorline
 
 "Show buffers as vim-airline
 let g:airline#extensions#tabline#enabled = 1
+"let g:airline_powerline_fonts = 1
 
 "Use patched fonts for airline
 "set guifont=Liberation\ Mono\ Powerline\ 12
@@ -245,3 +250,11 @@ let g:UltiSnipsEditSplit="vertical"
 
 "Tells yankring where to store yankring history"
 let g:yankring_history_dir = '/home/alex/.vim/bundle/Yankring'
+
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+

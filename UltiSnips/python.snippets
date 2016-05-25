@@ -19,6 +19,7 @@ ${2:####################
 #parser.add_argument('-d', '--directory', 
 #                    help="Directory to parse for pdfs",
 #                    type=str, default= "./")
+#You can also use the addArg snippet.
 ####################}
 
 args = parser.parse_args()
@@ -45,3 +46,8 @@ parser.add_argument('-${1/^(.).*/$1/}', '--${1:save}',
 $1=args.$1
 endsnippet
 
+snippet jsave "Serialises some data to a json file" b
+outputFile=open("${1:filename}.json", "w")
+outputFile.write(json.dumps(${2:dictionary}, ensure_ascii=False))
+outputFile.close()
+endsnippet
