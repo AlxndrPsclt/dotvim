@@ -38,6 +38,7 @@ Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-session'
 Plugin 'EvanDotPro/nerdtree-chmod'
 Plugin 'djoshea/vim-autoread'
+Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'tmux-plugins/vim-tmux-focus-events'
 "Some markdown glitter
 Plugin 'godlygeek/tabular'
@@ -46,6 +47,8 @@ Plugin 'nelstrom/vim-markdown-folding'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'derekwyatt/vim-scala'
 
 call vundle#end()
 
@@ -83,7 +86,7 @@ set cursorline
 
 "Show buffers as vim-airline
 let g:airline#extensions#tabline#enabled = 1
-"let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 1
 
 "Use patched fonts for airline
 "set guifont=Liberation\ Mono\ Powerline\ 12
@@ -106,6 +109,14 @@ let g:airline#extensions#tabline#enabled = 1
 "let g:airline_symbols.paste = '∥'
 "let g:airline_symbols.whitespace = 'Ξ'
 
+" airline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+"let g:airline_symbols.branch = ''
+"let g:airline_symbols.readonly = ''
+"let g:airline_symbols.linenr = ''
 
 
 
@@ -135,8 +146,8 @@ imap <F2> jj :GundoToggle<CR>
 nmap <F2> :GundoToggle<CR>
 
 "Racourcis pour Nerdtree
-imap <F1> jj :NERDTreeToggle<CR>
-nmap <F1> :NERDTreeToggle<CR>
+imap <F1> jj :NERDTreeTabsToggle<CR>
+nmap <F1> :NERDTreeTabsToggle<CR>
 "noremap <F1> :NERDTreeToggle<CR>
 
 "##Working with Splits"
@@ -145,10 +156,10 @@ set splitbelow
 set splitright
 
 "###Shortcuts to navigate between splits"
-nmap <leader>8 :wincmd k<CR>
-nmap <leader>2 :wincmd j<CR>
-nmap <leader>4 :wincmd h<CR>
-nmap <leader>6 :wincmd l<CR>
+nmap <S-up>8 :wincmd k<CR>
+nmap <S-down>2 :wincmd j<CR>
+nmap <S-left>4 :wincmd h<CR>
+nmap <S-right>6 :wincmd l<CR>
 
 "Resizing windows with + and -
 if bufwinnr(1)
@@ -260,6 +271,7 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 "Some Ocaml shit
-let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
-execute "set rtp+=" . g:opamshare . "/merlin/vim"
+"let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
+"execute "set rtp+=" . g:opamshare . "/merlin/vim"
+
 imap <leader>l <C-x><C-o>
