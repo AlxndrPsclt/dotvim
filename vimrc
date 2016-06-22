@@ -48,6 +48,7 @@ Plugin 'elixir-lang/vim-elixir'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'haoyu953/pride.vim'
 
 call vundle#end()
 
