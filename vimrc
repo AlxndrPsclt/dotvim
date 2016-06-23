@@ -44,11 +44,14 @@ Plugin 'tmux-plugins/vim-tmux-focus-events'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'nelstrom/vim-markdown-folding'
+"Elixir plugin
+Plugin 'elixir-lang/vim-elixir'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'derekwyatt/vim-scala'
+Plugin 'haoyu953/pride.vim'
 
 call vundle#end()
 
