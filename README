@@ -1,7 +1,9 @@
-Pour récupérer la conf, cloner le dossier dans ~./vim puis faire un lien symbolique:
+To install
 
+git clone https://github.com/AlxndrPsclt/dotvim.git ~/.vim
 ln -s ~/.vim/vimrc ~/.vimrc
-Then 
+
+Then
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 to instal plugin manager.
 Then open vim and run :PluginInstall.
