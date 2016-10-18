@@ -46,8 +46,27 @@ parser.add_argument('-${1/^(.).*/$1/}', '--${1:save}',
 $1=args.$1
 endsnippet
 
+snippet witho "Inserts code to read a file properly" b
+with open("${1:filename}", 'r') as myfile:
+    ${2:data}=myfile.read()
+endsnippet
+
+snippet funcApplyToFile "Adds a function that applies the function given as first argument to every line of a file whose path is given as the second argument, and saves the output to the file given as tird argument." b
+def applyToFile(functionToApply, oldfile, newfile):
+    with open(newfile, 'w') as outfile, open(oldfile, 'r', encoding='utf-8') as infile:
+        for line in infile:
+            o_line=functionToApply(line)
+            outfile.write(line)
+endsnippet
+
 snippet jsave "Serialises some data to a json file" b
-outputFile=open("${1:filename}.json", "w")
-outputFile.write(json.dumps(${2:dictionary}, ensure_ascii=False))
-outputFile.close()
+with open("${1:filename}.json", "w") as outputFile:
+    outputFile.write(json.dumps(${2:dictionary}, ensure_ascii=False))
+endsnippet
+
+snippet ipprint "Code that imports prettyprint and sets the pp function." b
+import pprint
+
+pprinter = pprint.PrettyPrinter(indent=2)
+pp=pprinter.pprint
 endsnippet
