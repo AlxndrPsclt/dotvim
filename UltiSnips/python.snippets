@@ -51,3 +51,8 @@ outputFile=open("${1:filename}.json", "w")
 outputFile.write(json.dumps(${2:dictionary}, ensure_ascii=False))
 outputFile.close()
 endsnippet
+
+snippet witho "Construction to open a file properly" b
+with open('${1:filename}', 'r') as f:
+    read_data = f.read()
+endsnippet

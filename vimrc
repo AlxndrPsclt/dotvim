@@ -52,6 +52,8 @@ Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'derekwyatt/vim-scala'
 Plugin 'haoyu953/pride.vim'
+Plugin 'dermusikman/sonicpi.vim'
+Plugin 'ekalinin/Dockerfile.vim'
 
 call vundle#end()
 

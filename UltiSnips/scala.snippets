@@ -1,0 +1,17 @@
+snippet //// "Code delimiting block comment" b
+`!p
+snip.rv="/"*min(len(t[1])+4, 80)
+snip.rv+="\n//"
+`${1:Description}`!p
+snip.rv="//"
+
+snip.rv+="\n"
+snip.rv+="/"*min(len(t[1])+4, 80)
+`
+endsnippet
+
+snippet deft "define function with return types"
+def ${1:name}(${2:arg}): ${3:returnType}= {
+  ${0:}
+}
+endsnippet
