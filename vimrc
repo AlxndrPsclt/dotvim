@@ -280,3 +280,11 @@ nmap ga <Plug>(EasyAlign)
 "execute "set rtp+=" . g:opamshare . "/merlin/vim"
 
 imap <leader>l <C-x><C-o>
+
+"A command to allow saving a file using sudo even if you didn't use sudo vim
+command W w !sudo tee % > /dev/null
+
+
+function Ccase() range
+	echo system('echo '.shellescape(join(getline(a:firstline, a:lastline), "\n")).'| ~/.vim/scripts/ccase.py')
+endfunction
