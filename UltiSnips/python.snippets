@@ -71,7 +71,23 @@ pprinter = pprint.PrettyPrinter(indent=2)
 pp=pprinter.pprint
 endsnippet
 
-snippet witho "Construction to open a file properly" b
-with open('${1:filename}', 'r') as f:
-    read_data = f.read()
+snippet inout "Template for a python script taking two parameters, input and output files." b
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import argparse
+parser = argparse.ArgumentParser(description='${1:description}')
+
+parser.add_argument('-i', '--infile', 
+                    help="Input csv file",
+                    type=str, default= None)
+
+parser.add_argument('-o', '--outfile', 
+                    help="Output txt file",
+                    type=str, default= None)
+
+args = parser.parse_args()
+
+infile=args.infile
+outfile=args.outfile
 endsnippet
