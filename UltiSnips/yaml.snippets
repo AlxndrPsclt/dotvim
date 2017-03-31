@@ -1,0 +1,27 @@
+snippet ver "Initialize docker0compose file"
+version: '2'
+
+endsnippet
+
+snippet ser "Services" b
+services:
+  ${1:container_name}:
+    container_name: $1
+endsnippet
+
+snippet img "Using a docker image" b
+image: ${1:image_name}
+endsnippet
+
+snippet vol "Define a volume for the container" b
+volumes:
+ - ${1:local_path}:${2:container_path}
+endsnippet
+
+snippet por "Exposing ports" b
+ports:
+ - ${1:local_port}:${2:container_port}
+endsnippet
+
+
+

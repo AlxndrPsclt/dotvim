@@ -288,3 +288,5 @@ command W w !sudo tee % > /dev/null
 function Ccase() range
 	echo system('echo '.shellescape(join(getline(a:firstline, a:lastline), "\n")).'| ~/.vim/scripts/ccase.py')
 endfunction
+
+set hlsearch
