@@ -91,3 +91,40 @@ args = parser.parse_args()
 infile=args.infile
 outfile=args.outfile
 endsnippet
+
+
+snippet csvinout "Read a csv, applys some function, outputs a csv" b
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import csv
+import argparse
+
+parser = argparse.ArgumentParser(description='Read input csv file, does a manipulation, output new csv file')
+
+parser.add_argument('-i', '--infile', 
+                    help="Input csv file",
+                    type=str, default= None)
+
+parser.add_argument('-o', '--outfile', 
+                    help="Output txt file",
+                    type=str, default= None)
+
+args = parser.parse_args()
+
+infile=args.infile
+outfile=args.outfile
+
+with open(infile, 'rb') as in_csvfile, open(outfile, 'w') as out_csvfile:
+    reader = csv.reader(in_csvfile, delimiter=in_delimiter, quotechar='"')
+    writer = csv.writer(out_csvfile, delimiter=out_delimiter, quotechar='"', quoting=csv.QUOTE_MINIMAL)
+    for row in reader:
+        #id=row['ID']
+        #prenom=row['prenom']
+        #Add your operations on fields here
+
+        #newrow=...
+        writer.writerow(${1:['Spam', 'Lovely Spam', 'Wonderful Spam']})
+
+
+endsnippet
