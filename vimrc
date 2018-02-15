@@ -29,6 +29,7 @@ Plugin 'vim-scripts/mru.vim'
 Plugin 'SirVer/ultisnips'
 "Plugin 'wincent/command-t'
 Plugin 'kien/ctrlp.vim'
+Plugin 'DavidEGx/ctrlp-smarttabs'
 Plugin 'luochen1990/rainbow'
 Plugin 'mattn/emmet-vim'
 Plugin 'tpope/vim-unimpaired'
@@ -290,3 +291,7 @@ function Ccase() range
 endfunction
 
 set hlsearch
+
+
+"Adding ctrlp tabs:
+let g:ctrlp_extensions = ['smarttabs']
