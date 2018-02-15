@@ -295,3 +295,7 @@ set hlsearch
 
 "Adding ctrlp tabs:
 let g:ctrlp_extensions = ['smarttabs']
+
+
+"Adding classic shell aliases to vim bash
+let $BASH_ENV = "~/.config/perso/bash_config/bash_aliases"
