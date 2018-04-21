@@ -1,5 +1,22 @@
-snippet ver "Initialize docker0compose file"
-version: '2'
+#General
+snippet ### "Creates a box for storing comments" b
+`!p
+snip.rv="#"*min(len(t[1])+2, 80)
+snip.rv+="\n#"
+`${1:Description}`!p
+snip.rv="#"
+
+snip.rv+="\n"
+snip.rv+="#"*min(len(t[1])+2, 80)
+`
+endsnippet
+
+
+
+
+###Docker
+snippet ver "Initialize docker-compose file"
+version: '3.5'
 
 endsnippet
 
@@ -22,6 +39,3 @@ snippet por "Exposing ports" b
 ports:
  - ${1:local_port}:${2:container_port}
 endsnippet
-
-
-
