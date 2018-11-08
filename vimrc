@@ -299,3 +299,6 @@ let g:ctrlp_extensions = ['smarttabs']
 
 "Adding classic shell aliases to vim bash
 let $BASH_ENV = "~/.config/perso/bash_config/bash_aliases"
+
+"Disable session autosave because it's annoying and rarely usefull"
+let g:session_autosave = 'no'
