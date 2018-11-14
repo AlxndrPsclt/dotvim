@@ -267,19 +267,12 @@ let g:UltiSnipsExpandTrigger="<tab>"
 "Edit snippets in a vertical snip
 let g:UltiSnipsEditSplit="vertical"
 
-"Tells yankring where to store yankring history"
-let g:yankring_history_dir = '/home/alex/.vim/bundle/Yankring'
-
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
-
-"Some Ocaml shit
-"let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
-"execute "set rtp+=" . g:opamshare . "/merlin/vim"
 
 imap <leader>l <C-x><C-o>
 
@@ -300,3 +293,10 @@ let g:ctrlp_extensions = ['smarttabs']
 
 "Adding classic shell aliases to vim bash
 let $BASH_ENV = "~/.config/perso/bash_config/bash_aliases"
+
+"Disable session autosave because it's annoying and rarely usefull"
+let g:session_autosave = 'no'
+
+
+"Paste toggle to allow clean pasting without useless auto indentation
+set pastetoggle=<leader>p
