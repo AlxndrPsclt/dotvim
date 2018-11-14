@@ -276,10 +276,6 @@ xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 
-"Some Ocaml shit
-"let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
-"execute "set rtp+=" . g:opamshare . "/merlin/vim"
-
 imap <leader>l <C-x><C-o>
 
 "A command to allow saving a file using sudo even if you didn't use sudo vim
@@ -302,3 +298,7 @@ let $BASH_ENV = "~/.config/perso/bash_config/bash_aliases"
 
 "Disable session autosave because it's annoying and rarely usefull"
 let g:session_autosave = 'no'
+
+
+"Paste toggle to allow clean pasting without useless auto indentation
+set pastetoggle=<leader>p
