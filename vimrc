@@ -266,9 +266,6 @@ let g:UltiSnipsExpandTrigger="<tab>"
 "Edit snippets in a vertical snip
 let g:UltiSnipsEditSplit="vertical"
 
-"Tells yankring where to store yankring history"
-let g:yankring_history_dir = '/home/alex/.vim/bundle/Yankring'
-
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
