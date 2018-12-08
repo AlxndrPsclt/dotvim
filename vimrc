@@ -56,6 +56,7 @@ Plugin 'derekwyatt/vim-scala'
 Plugin 'haoyu953/pride.vim'
 Plugin 'dermusikman/sonicpi.vim'
 Plugin 'ekalinin/Dockerfile.vim'
+Plugin 'supercollider/scvim'
 
 call vundle#end()
 
