@@ -128,7 +128,7 @@ let g:airline_right_alt_sep = ''
 
 
 
-"Rajoutte les numéros de ligne
+"Rajoutte les numéros de ligne relatifs
 set relativenumber
 
 "Always do global line searches (add flag g at the end of a search)
@@ -164,10 +164,10 @@ set splitbelow
 set splitright
 
 "###Shortcuts to navigate between splits"
-nmap <S-up>8 :wincmd k<CR>
-nmap <S-down>2 :wincmd j<CR>
-nmap <S-left>4 :wincmd h<CR>
-nmap <S-right>6 :wincmd l<CR>
+nmap <up> :wincmd k<CR>
+nmap <down> :wincmd j<CR>
+nmap <left> :wincmd h<CR>
+nmap <right> :wincmd l<CR>
 
 "Resizing windows with + and -
 if bufwinnr(1)
