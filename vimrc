@@ -191,12 +191,6 @@ set undofile
 set undolevels=1000 "maximum number of changes that can be undone
 set undoreload=10000 "maximum number lines to save for undo on a buffer reload"
 
-" Bubble single lines (Move the lines with the keyboard)
-nmap <Esc>[1;3A ddkP
-nmap <Esc>[1;3B ddp
-" " Bubble multiple lines
-vmap <Esc>[1;3A xkP`[V`]
-vmap <Esc>[1;3B xp`[V`]
 
 
 " Source the vimrc file after saving it
@@ -209,15 +203,15 @@ nmap <leader>v :tabedit $MYVIMRC<CR>
 
 " Toggle spell checking on and off with `,s`
 nmap <silent> <leader>s :set spell!<CR>
-
-" Allows to jump forward and backward 10 words at once
-nmap <silent> <leader>w 10w
-nmap <silent> <leader>W 10b
+nmap <silent> <leader>se :set spelllang=en<CR>
+nmap <silent> <leader>sf :set spelllang=fr<CR>
 
 "Correct the next erroronous with the first suggested correction
 nmap <silent> <leader>z h]s1z=
 "Skips the next error
 nmap <silent> <leader>Z ]sw
+
+hi SpellBad cterm=underline
 
 "Maps leader d to Jump to next digit and leader D to jump to previous digit
 nmap <silent> <leader>d /\d<CR>
@@ -230,24 +224,17 @@ nmap <silent> <leader>m :marks<CR>
 " copy current file name (relative/absolute) to system clipboard (Linux
 " version)
 " relative path (src/foo.txt)
-nnoremap <leader>crf :let @"=expand("%")<CR>
-
-" absolute path (/something/src/foo.txt)
-nnoremap <leader>caf :let @"=expand("%:p")<CR>
-
-" filename (foo.txt)
-nnoremap <leader>cfn :let @"=expand("%:t")<CR>
+nnoremap <leader>cwf :let @"=expand("%")<CR>
 
 " directory name (/something/src)
-nnoremap <leader>cdi :let @"=expand("%:p:h")<CR>
+nnoremap <leader>cwd :let @"=expand("%:p:h")<CR>
+
+
 
 
 "Permet de changer un mot et de sortir automatiquement du mode insertion à la
 "fin de ce mot
 nmap <leader>c :inoremap <lt>Space> <lt>Space><lt>Esc>:iunmap <lt>lt>Space><lt>CR><CR> caw
-
-:nnoremap <leader>l A<CR><ESC>
-:nnoremap <leader>L I<CR><ESC>
 
 "Permet d'afficher la liste des jumps
 nnoremap <leader>j :jumps<CR>
@@ -301,3 +288,8 @@ let g:session_autosave = 'no'
 
 "Paste toggle to allow clean pasting without useless auto indentation
 set pastetoggle=<leader>p
+
+"Supercollider execute code shortcut
+nmap <leader><return> <F5>
+nmap <leader><space> <F6>
+nmap <C-return> <F6>
