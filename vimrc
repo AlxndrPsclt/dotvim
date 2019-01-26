@@ -17,7 +17,7 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'honza/vim-snippets'
 Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'kien/rainbow_parentheses.vim'
-"Plugin 'kshenoy/vim-signature'
+Plugin 'kshenoy/vim-signature'
 Plugin 'scrooloose/nerdtree'
 Plugin 'sjl/gundo.vim'
 Plugin 'mbbill/undotree'
@@ -293,3 +293,4 @@ set pastetoggle=<leader>p
 nmap <leader><return> <F5>
 nmap <leader><space> <F6>
 nmap <C-return> <F6>
+nmap <silent> <leader>sc :SClangStart<CR>
