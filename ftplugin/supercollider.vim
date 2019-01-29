@@ -5,3 +5,4 @@ setlocal shiftwidth=2
 setlocal expandtab
 
 set foldmethod=indent
+set foldlevel=1
