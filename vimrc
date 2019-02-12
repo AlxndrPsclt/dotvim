@@ -294,3 +294,6 @@ nmap <leader><return> <F5>
 nmap <leader><space> <F6>
 nmap <C-return> <F6>
 nmap <silent> <leader>sc :SClangStart<CR>
+let g:scFlash = 1
+let g:scSplitSize = 25
+
