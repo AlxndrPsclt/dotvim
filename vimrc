@@ -289,11 +289,3 @@ let g:session_autosave = 'no'
 "Paste toggle to allow clean pasting without useless auto indentation
 set pastetoggle=<leader>p
 
-"Supercollider execute code shortcut
-nmap <leader><return> <F5>
-nmap <leader><space> <F6>
-nmap <C-return> <F6>
-nmap <silent> <leader>sc :SClangStart<CR>
-let g:scFlash = 1
-let g:scSplitSize = 25
-
