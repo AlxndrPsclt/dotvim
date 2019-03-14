@@ -1,0 +1,211 @@
+"execute pathogen#infect()
+set nocompatible
+
+"Vundle Setup
+filetype off
+set runtimepath+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+"Plugin 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'junegunn/goyo.vim'
+Plugin 'amix/vim-zenroom2'
+
+"Plugin 'MarcWeber/vim-addon-mw-utils'
+"Plugin 'Raimondi/delimitMate'
+"Plugin 'bling/vim-airline'
+Plugin 'ervandew/supertab'
+"Plugin 'flazz/vim-colorschemes'
+"Plugin 'honza/vim-snippets'
+"Plugin 'hynek/vim-python-pep8-indent'
+"Plugin 'kien/rainbow_parentheses.vim'
+"Plugin 'kshenoy/vim-signature'
+"Plugin 'scrooloose/nerdtree'
+"Plugin 'sjl/gundo.vim'
+"Plugin 'mbbill/undotree'
+Plugin 'terryma/vim-multiple-cursors'
+"Plugin 'tomtom/tlib_vim'
+"Plugin 'tpope/vim-endwise'
+"Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-surround'
+"Plugin 'vim-scripts/mru.vim'
+"Plugin 'SirVer/ultisnips'
+""Plugin 'wincent/command-t'
+"Plugin 'kien/ctrlp.vim'
+"Plugin 'DavidEGx/ctrlp-smarttabs'
+"Plugin 'luochen1990/rainbow'
+"Plugin 'mattn/emmet-vim'
+"Plugin 'tpope/vim-unimpaired'
+"Plugin 'tpope/vim-abolish'
+"Plugin 'rking/ag.vim'
+"Plugin 'xolox/vim-misc'
+"Plugin 'xolox/vim-session'
+"Plugin 'EvanDotPro/nerdtree-chmod'
+"Plugin 'djoshea/vim-autoread'
+"Plugin 'christoomey/vim-tmux-navigator'
+"Plugin 'tmux-plugins/vim-tmux-focus-events'
+""Some markdown glitter
+"Plugin 'godlygeek/tabular'
+"Plugin 'plasticboy/vim-markdown'
+"Plugin 'nelstrom/vim-markdown-folding'
+""Elixir plugin
+"Plugin 'elixir-lang/vim-elixir'
+"Plugin 'junegunn/vim-easy-align'
+"Plugin 'davidhalter/jedi-vim'
+"Plugin 'jistr/vim-nerdtree-tabs'
+"Plugin 'easymotion/vim-easymotion'
+"Plugin 'derekwyatt/vim-scala'
+"Plugin 'haoyu953/pride.vim'
+"Plugin 'dermusikman/sonicpi.vim'
+"Plugin 'ekalinin/Dockerfile.vim'
+"Plugin 'supercollider/scvim'
+
+call vundle#end()
+
+syntax on
+
+"filetype plugin on
+filetype on
+filetype indent on
+filetype plugin on
+
+"Mettre les fichier swap .swp et .swo dans un dossier spécifique et non dans
+"le dossier courant
+set backupdir=/tmp
+set directory=/tmp
+
+"Utiliser des tabulations de longueur 4
+set ts=2 sts=2 sw=2 expandtab
+
+" Use the same symbols as TextMate for tabstops and EOLs
+
+"Permet d'utiliser 256 couleurs
+set t_Co=256
+
+"Utiliser le theme torte
+"colorscheme torte
+"colorscheme pride
+
+"permet de laisser quelques lignes en bas du texte
+"set scrolloff=8
+
+"Rajoutte une règle horisontale sur la ligne courante
+set cursorline
+
+"Always do global line searches (add flag g at the end of a search)
+set gdefault
+
+"Set my leader key
+let mapleader = ","
+
+"Supprimer les flèches pour utiliser hjkl"
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+
+"utiliser jj au lieu de echap pour quitter le mode inser
+inoremap jj <esc>
+
+"Writing :w quickly saves the file, even in insert mode"
+inoremap :w <esc>:w<CR>
+
+imap <F1> jj :NERDTreeTabsToggle<CR>
+nmap <F1> :NERDTreeTabsToggle<CR>
+"noremap <F1> :NERDTreeToggle<CR>
+
+"##Working with Splits"
+"###Create new splits in a more natural way than vim defaults"
+set splitbelow
+set splitright
+
+"###Shortcuts to navigate between splits"
+nmap <up> :wincmd k<CR>
+nmap <down> :wincmd j<CR>
+nmap <left> :wincmd h<CR>
+nmap <right> :wincmd l<CR>
+
+"Resizing windows with + and -
+if bufwinnr(1)
+	map + <C-W>>
+	map - <C-W><
+endif
+
+
+set undodir=~/.vim/undodir
+set undofile
+set undolevels=1000 "maximum number of changes that can be undone
+set undoreload=10000 "maximum number lines to save for undo on a buffer reload"
+
+
+
+" Toggle spell checking on and off with `,s`
+nmap <silent> <leader>s :set spell!<CR>
+nmap <silent> <leader>se :set spelllang=en<CR>
+nmap <silent> <leader>sf :set spelllang=fr<CR>
+set spell!
+
+"Correct the next erroronous with the first suggested correction
+nmap <silent> <leader>z h]s1z=
+"Skips the next error
+nmap <silent> <leader>Z ]sw
+
+hi SpellBad cterm=underline
+
+"Maps leader d to Jump to next digit and leader D to jump to previous digit
+nmap <silent> <leader>d /\d<CR>
+nmap <silent> <leader>D ?\d<CR>
+
+"Maps leader m to show the list of marks
+nmap <silent> <leader>m :marks<CR>
+
+
+" copy current file name (relative/absolute) to system clipboard (Linux
+" version)
+" relative path (src/foo.txt)
+nnoremap <leader>cwf :let @"=expand("%")<CR>
+
+" directory name (/something/src)
+nnoremap <leader>cwd :let @"=expand("%:p:h")<CR>
+
+
+
+
+"Permet d'afficher la liste des jumps
+nnoremap <leader>j :jumps<CR>
+
+" tabs to naviagate in ultiSnips instead of c-j, c-k
+let g:UltiSnipsExpandTrigger="<tab>"
+"let g:UltiSnipsJumpForwardTrigger="<c-a>"
+"let g:UltiSnipsJumpBackwardTrigger="<c-s>"
+
+"Edit snippets in a vertical snip
+let g:UltiSnipsEditSplit="vertical"
+
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
+imap <leader>l <C-x><C-o>
+
+"A command to allow saving a file using sudo even if you didn't use sudo vim
+command W w !sudo tee % > /dev/null
+
+
+set hlsearch
+
+"Adding ctrlp tabs:
+let g:ctrlp_extensions = ['smarttabs']
+
+
+"Disable session autosave because it's annoying and rarely usefull"
+let g:session_autosave = 'no'
+
+"Paste toggle to allow clean pasting without useless auto indentation
+set pastetoggle=<leader>p
+
+let g:Goyo
