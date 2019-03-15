@@ -9,7 +9,12 @@ call vundle#begin()
 "Plugin 'gmarik/vundle'
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'mikewest/vimroom'
+"Plugin 'junegunn/goyo.vim'
+Plugin 'junegunn/limelight.vim'
+Plugin 'arcticicestudio/nord-vim'
+
+"Plugin 'junegunn/seoul256.vim'
+"Plugin 'amix/vim-zenroom2'
 
 "Plugin 'MarcWeber/vim-addon-mw-utils'
 "Plugin 'Raimondi/delimitMate'
@@ -62,7 +67,9 @@ Plugin 'tpope/vim-surround'
 
 call vundle#end()
 
+
 syntax on
+colorscheme nord
 
 "filetype plugin on
 filetype on
@@ -207,8 +214,27 @@ let g:session_autosave = 'no'
 "Paste toggle to allow clean pasting without useless auto indentation
 set pastetoggle=<leader>p
 
+"If you want to use gvim (bad idea!)
 set guioptions -=m
 set guioptions -=r
 set guioptions -=T
 
-autocmd VimEnter * Goyo
+autocmd VimEnter * Limelight
+
+
+set guioptions=Ace 
+
+highlight EndOfBuffer ctermfg=236
+
+set wrap
+set lbr
+
+let g:limelight_conceal_ctermfg = 'DarkGray'
+let g:limelight_paragraph_span = 1
+
+let s:hidden_all = 1
+set noshowmode
+set noruler
+set laststatus=0
+set noshowcmd
+set shortmess=F
