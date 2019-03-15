@@ -9,8 +9,7 @@ call vundle#begin()
 "Plugin 'gmarik/vundle'
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'junegunn/goyo.vim'
-Plugin 'amix/vim-zenroom2'
+Plugin 'mikewest/vimroom'
 
 "Plugin 'MarcWeber/vim-addon-mw-utils'
 "Plugin 'Raimondi/delimitMate'
@@ -208,4 +207,8 @@ let g:session_autosave = 'no'
 "Paste toggle to allow clean pasting without useless auto indentation
 set pastetoggle=<leader>p
 
-let g:Goyo
+set guioptions -=m
+set guioptions -=r
+set guioptions -=T
+
+autocmd VimEnter * Goyo

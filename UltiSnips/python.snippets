@@ -51,6 +51,11 @@ with open("${1:filename}", 'r') as myfile:
     ${2:data}=myfile.read()
 endsnippet
 
+snippet withow "Inserts code to wrtie a file properly" b
+with open(${1:filename}, 'w') as myfile:
+    myfile.write(${2:filecontent})
+endsnippet
+
 snippet funcApplyToFile "Adds a function that applies the function given as first argument to every line of a file whose path is given as the second argument, and saves the output to the file given as tird argument." b
 def applyToFile(functionToApply, oldfile, newfile):
     with open(newfile, 'w') as outfile, open(oldfile, 'r', encoding='utf-8') as infile:
@@ -93,31 +98,36 @@ outfile=args.outfile
 endsnippet
 
 
-snippet csvinout "Read a csv, applys some function, outputs a csv" b
+snippet csvincsvout "Read a csv, applys some function, outputs a csv" b
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 import csv
 import argparse
 
+IN_DELIMITER=','
+In_QUOTECHAR='"'
+OUT_DELIMITER=','
+OUT_QUOTECHAR='"'
+
 parser = argparse.ArgumentParser(description='Read input csv file, does a manipulation, output new csv file')
 
 parser.add_argument('-i', '--infile', 
                     help="Input csv file",
-                    type=str, default= None)
+                    type=str, default= "input.csv")
 
 parser.add_argument('-o', '--outfile', 
                     help="Output txt file",
-                    type=str, default= None)
+                    type=str, default= "output.csv")
 
 args = parser.parse_args()
 
 infile=args.infile
 outfile=args.outfile
 
-with open(infile, 'rb') as in_csvfile, open(outfile, 'w') as out_csvfile:
-    reader = csv.reader(in_csvfile, delimiter=in_delimiter, quotechar='"')
-    writer = csv.writer(out_csvfile, delimiter=out_delimiter, quotechar='"', quoting=csv.QUOTE_MINIMAL)
+with open(infile, 'r') as in_csvfile, open(outfile, 'w') as out_csvfile:
+    reader = csv.reader(in_csvfile, delimiter=IN_DELIMITER, quotechar=IN_QUOTECHAR)
+    writer = csv.writer(out_csvfile, delimiter=OUT_DELIMITER, quotechar=OUT_QUOTECHAR, quoting=csv.QUOTE_MINIMAL)
     for row in reader:
         #id=row['ID']
         #prenom=row['prenom']
@@ -125,6 +135,66 @@ with open(infile, 'rb') as in_csvfile, open(outfile, 'w') as out_csvfile:
 
         #newrow=...
         writer.writerow(${1:['Spam', 'Lovely Spam', 'Wonderful Spam']})
+
+
+endsnippet
+
+
+
+snippet csv2dict "Read a csv, as a dictionnary" b
+# -*- coding: utf-8 -*-
+
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import csv
+import argparse
+
+import pprint
+
+
+IN_DELIMITER=','
+
+parser = argparse.ArgumentParser(description='Read input csv file, does a manipulation, output new csv file')
+
+parser.add_argument('-i', '--infile', 
+                    help="Input csv file",
+                    type=str, default= "inupt.csv")
+
+parser.add_argument('-o', '--outfile', 
+                    help="Output txt file",
+                    type=str, default= "run_export.001.sh")
+
+args = parser.parse_args()
+
+infile=args.infile
+outfile=args.outfile
+
+with open(infile, 'r') as in_csvfile, open(outfile, 'w') as out_csvfile:
+    reader = csv.reader(in_csvfile, delimiter=IN_DELIMITER, quotechar='"')
+    headers = next(reader, None)
+    data = []
+    for row in reader:
+        dict_row={}
+        for h, v in zip(headers, row):
+            dict_row[h]=v
+        data.append(dict_row)
+
+pprint.pprint(data)
+
+with open(outfile, 'w') as out_csvfile:
+    for elt in data:
+        bash_line="expect_password.sh {} {}\n"
+        username_pathname=elt["grouping"]+'/u.'+elt['name']
+        username=elt['username']
+        password_pathname=elt["grouping"]+'/p.'+elt['name']
+        password=elt['password']
+
+        username_line=bash_line.format(username_pathname, username)
+        password_line=bash_line.format(password_pathname, password)
+
+        outfile.write(username_line)
+        outfile.write(password_line)
 
 
 endsnippet
