@@ -227,3 +227,10 @@ set lbr
 
 let g:limelight_conceal_ctermfg = 'DarkGray'
 let g:limelight_paragraph_span = 1
+
+let s:hidden_all = 1
+set noshowmode
+set noruler
+set laststatus=0
+set noshowcmd
+set shortmess=F
