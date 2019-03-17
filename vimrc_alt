@@ -9,9 +9,12 @@ call vundle#begin()
 "Plugin 'gmarik/vundle'
 Plugin 'VundleVim/Vundle.vim'
 
-"Plugin 'junegunn/goyo.vim'
+Plugin 'junegunn/goyo.vim'
 Plugin 'junegunn/limelight.vim'
 Plugin 'arcticicestudio/nord-vim'
+
+"Plugin 'haya14busa/vim-keeppad'
+
 
 "Plugin 'junegunn/seoul256.vim'
 "Plugin 'amix/vim-zenroom2'
@@ -208,8 +211,9 @@ set hlsearch
 let g:ctrlp_extensions = ['smarttabs']
 
 
-"Disable session autosave because it's annoying and rarely usefull"
-let g:session_autosave = 'no'
+let g:session_default_name = 'focus'
+let g:session_autosave = 'yes'
+let g:session_autoload = 'yes'
 
 "Paste toggle to allow clean pasting without useless auto indentation
 set pastetoggle=<leader>p
@@ -220,6 +224,7 @@ set guioptions -=r
 set guioptions -=T
 
 autocmd VimEnter * Limelight
+autocmd VimEnter * Goyo 61%x95
 
 
 set guioptions=Ace 
@@ -232,9 +237,16 @@ set lbr
 let g:limelight_conceal_ctermfg = 'DarkGray'
 let g:limelight_paragraph_span = 1
 
+
 let s:hidden_all = 1
 set noshowmode
 set noruler
 set laststatus=0
 set noshowcmd
 set shortmess=F
+
+autocmd BufEnter * let &titlestring = "FocusVim"
+set title
+
+
+autocmd VimLeave * :mksession! ~/.vim/sessions/focus.vim
