@@ -54,6 +54,7 @@ Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'derekwyatt/vim-scala'
 Plugin 'haoyu953/pride.vim'
+Plugin 'arcticicestudio/nord-vim'
 Plugin 'dermusikman/sonicpi.vim'
 Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'supercollider/scvim'
@@ -84,7 +85,8 @@ set t_Co=256
 
 "Utiliser le theme torte
 "colorscheme torte
-colorscheme pride
+"colorscheme pride
+colorscheme nord
 
 "permet de laisser quelques lignes en bas du texte
 set scrolloff=8
@@ -289,3 +291,7 @@ let g:session_autosave = 'no'
 "Paste toggle to allow clean pasting without useless auto indentation
 set pastetoggle=<leader>p
 
+let s:hidden_all = 1
+set laststatus=0
+set noshowcmd
+set shortmess=F
