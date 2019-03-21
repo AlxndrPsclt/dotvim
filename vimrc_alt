@@ -1,5 +1,6 @@
 "execute pathogen#infect()
 set nocompatible
+set backspace=2
 
 "Vundle Setup
 filetype off
