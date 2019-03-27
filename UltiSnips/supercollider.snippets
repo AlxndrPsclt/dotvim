@@ -1,0 +1,10 @@
+snippet Pwrandadd "Adds a Pbind value that is the wrand choosing of several sub patterns" b
+${1:dur}, Pwrand(
+    [
+    ${2:~pattern1},
+    ${3:~pattern2},
+    ${4:~pattern3},
+    ],
+    [1, 1, 1].normalizeSum,
+    inf),
+endsnippet

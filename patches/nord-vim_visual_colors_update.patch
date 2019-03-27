@@ -1,0 +1,22 @@
+diff --git a/colors/nord.vim b/colors/nord.vim
+index 8dbd5a9..99f9565 100755
+--- a/colors/nord.vim
++++ b/colors/nord.vim
+@@ -173,7 +173,7 @@ call s:hi("SpellBad", s:nord11_gui, s:nord0_gui, s:nord11_term, "NONE", "undercu
+ call s:hi("SpellCap", s:nord13_gui, s:nord0_gui, s:nord13_term, "NONE", "undercurl", s:nord13_gui)
+ call s:hi("SpellLocal", s:nord5_gui, s:nord0_gui, s:nord5_term, "NONE", "undercurl", s:nord5_gui)
+ call s:hi("SpellRare", s:nord6_gui, s:nord0_gui, s:nord6_term, "NONE", "undercurl", s:nord6_gui)
+-call s:hi("Visual", "", s:nord2_gui, "", s:nord1_term, "", "")
++call s:hi("Visual", "", s:nord2_gui, "", s:nord3_term, "", "")
+ call s:hi("VisualNOS", "", s:nord2_gui, "", s:nord1_term, "", "")
+ "+- Neovim Support -+
+ call s:hi("healthError", s:nord11_gui, s:nord1_gui, s:nord11_term, s:nord1_term, "", "")
+@@ -257,7 +257,7 @@ call s:hi("VertSplit", s:nord2_gui, s:nord1_gui, s:nord3_term, s:nord1_term, "NO
+ "+----------------------+
+ call s:hi("Boolean", s:nord9_gui, "", s:nord9_term, "", "", "")
+ call s:hi("Character", s:nord14_gui, "", s:nord14_term, "", "", "")
+-call s:hi("Comment", s:nord3_gui_brightened[g:nord_comment_brightness], "", s:nord14_term, "", s:italicize_comments, "")
++call s:hi("Comment", s:nord3_gui_bright, "", s:nord14_term, "", s:italicize_comments, "")
+ "call s:hi("Comment", s:nord3_gui_bright, "", s:nord3_term, "", s:italicize_comments, "")
+ call s:hi("Conditional", s:nord9_gui, "", s:nord9_term, "", "", "")
+ call s:hi("Constant", s:nord4_gui, "", "NONE", "", "", "")
