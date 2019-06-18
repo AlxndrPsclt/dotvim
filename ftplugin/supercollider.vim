@@ -5,7 +5,7 @@ setlocal shiftwidth=2
 setlocal expandtab
 
 set foldmethod=indent
-set foldlevel=1
+set foldlevel=3
 let g:scFlash = 1
 let g:scSplitSize = 25
 

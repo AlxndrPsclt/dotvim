@@ -19,7 +19,7 @@ Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'kshenoy/vim-signature'
 Plugin 'scrooloose/nerdtree'
-Plugin 'sjl/gundo.vim'
+Plugin 'simnalamburt/vim-mundo'
 Plugin 'mbbill/undotree'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tomtom/tlib_vim'
@@ -58,6 +58,8 @@ Plugin 'arcticicestudio/nord-vim'
 Plugin 'dermusikman/sonicpi.vim'
 Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'supercollider/scvim'
+Plugin 'dart-lang/dart-vim-plugin'
+
 
 call vundle#end()
 
@@ -126,9 +128,14 @@ inoremap jj <esc>
 "Writing :w quickly saves the file, even in insert mode"
 inoremap :w <esc>:w<CR>
 
-"Racourcis pour gundo
-imap <F2> jj :GundoToggle<CR>
-nmap <F2> :GundoToggle<CR>
+"Racourcis pour mundo
+imap <F2> jj :MundoToggle<CR>
+nmap <F2> :MundoToggle<CR>
+
+"Racourcis pour Nerdtree
+imap <F1> jj :NERDTreeTabsToggle<CR>
+nmap <F1> :NERDTreeTabsToggle<CR>
+"noremap <F1> :NERDTreeToggle<CR>
 
 "Racourcis pour Nerdtree
 imap <F1> jj :NERDTreeTabsToggle<CR>
@@ -273,3 +280,7 @@ set shortmess=F
 
 " Set scripts to be executable from the shell
 au BufWritePost * if getline(1) =~ "^#!" | if getline(1) =~ "/bin/" | silent execute "!chmod a+x <afile>" | endif | endif
+
+" Modifies gf to open file in new tab and create a new file if doesn't exist
+noremap gf :tabe <cfile><CR>
+
