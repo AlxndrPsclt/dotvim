@@ -281,3 +281,5 @@ au BufWritePost * if getline(1) =~ "^#!" | if getline(1) =~ "/bin/" | silent exe
 " Modifies gf to open file in new tab and create a new file if doesn't exist
 noremap gf :tabe <cfile><CR>
 
+" Run xrdb whenever Xdefaults or Xresources are updated.
+	autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
