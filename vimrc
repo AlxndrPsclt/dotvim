@@ -131,15 +131,12 @@ inoremap :w <esc>:w<CR>
 "Racourcis pour mundo
 imap <F2> jj :MundoToggle<CR>
 nmap <F2> :MundoToggle<CR>
+nmap <leader>u :MundoToggle<CR>
 
 "Racourcis pour Nerdtree
 imap <F1> jj :NERDTreeTabsToggle<CR>
 nmap <F1> :NERDTreeTabsToggle<CR>
-"noremap <F1> :NERDTreeToggle<CR>
-
-"Racourcis pour Nerdtree
-imap <F1> jj :NERDTreeTabsToggle<CR>
-nmap <F1> :NERDTreeTabsToggle<CR>
+nmap <leader>f :NERDTreeTabsToggle<CR>
 "noremap <F1> :NERDTreeToggle<CR>
 
 "##Working with Splits"
