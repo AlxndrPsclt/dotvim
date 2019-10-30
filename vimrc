@@ -258,6 +258,11 @@ set hlsearch
 
 "Adding ctrlp tabs:
 let g:ctrlp_extensions = ['smarttabs']
+let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<2-LeftMouse>'],
+    \ 'AcceptSelection("t")': ['<cr>'],
+    \ }
+nmap O :CtrlP<CR>
 
 
 "Adding classic shell aliases to vim bash
