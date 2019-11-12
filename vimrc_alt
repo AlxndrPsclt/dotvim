@@ -93,10 +93,6 @@ set ts=2 sts=2 sw=2 expandtab
 "Permet d'utiliser 256 couleurs
 set t_Co=256
 
-"Utiliser le theme torte
-"colorscheme torte
-"colorscheme pride
-
 "permet de laisser quelques lignes en bas du texte
 "set scrolloff=8
 
@@ -120,10 +116,6 @@ inoremap jj <esc>
 
 "Writing :w quickly saves the file, even in insert mode"
 inoremap :w <esc>:w<CR>
-
-imap <F1> jj :NERDTreeTabsToggle<CR>
-nmap <F1> :NERDTreeTabsToggle<CR>
-"noremap <F1> :NERDTreeToggle<CR>
 
 "##Working with Splits"
 "###Create new splits in a more natural way than vim defaults"
@@ -219,16 +211,9 @@ let g:session_autoload = 'yes'
 "Paste toggle to allow clean pasting without useless auto indentation
 set pastetoggle=<leader>p
 
-"If you want to use gvim (bad idea!)
-set guioptions -=m
-set guioptions -=r
-set guioptions -=T
-
 autocmd VimEnter * Limelight
 autocmd VimEnter * Goyo 61%x95
 
-
-set guioptions=Ace 
 
 highlight EndOfBuffer ctermfg=236
 
