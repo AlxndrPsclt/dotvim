@@ -59,6 +59,8 @@ Plugin 'dermusikman/sonicpi.vim'
 Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'supercollider/scvim'
 Plugin 'dart-lang/dart-vim-plugin'
+Plugin 'vim-airline/vim-airline-themes'
+
 
 
 call vundle#end()
@@ -89,6 +91,8 @@ set t_Co=256
 "colorscheme torte
 "colorscheme pride
 colorscheme nord
+
+let g:airline_theme='base16_nord'
 
 "permet de laisser quelques lignes en bas du texte
 set scrolloff=8
