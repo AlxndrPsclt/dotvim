@@ -59,7 +59,7 @@ Plugin 'dermusikman/sonicpi.vim'
 Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'supercollider/scvim'
 Plugin 'dart-lang/dart-vim-plugin'
-Plugin 'vim-airline/vim-airline-themes'
+Plugin 'AlxndrPsclt/vim-airline-themes'
 
 
 
