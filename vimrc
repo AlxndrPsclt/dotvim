@@ -24,11 +24,11 @@ Plugin 'mbbill/undotree'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tomtom/tlib_vim'
 Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-surround'
 Plugin 'vim-scripts/mru.vim'
 Plugin 'SirVer/ultisnips'
-"Plugin 'wincent/command-t'
 Plugin 'kien/ctrlp.vim'
 Plugin 'DavidEGx/ctrlp-smarttabs'
 Plugin 'luochen1990/rainbow'
@@ -50,20 +50,22 @@ Plugin 'nelstrom/vim-markdown-folding'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'davidhalter/jedi-vim'
-Plugin 'jistr/vim-nerdtree-tabs'
+"Plugin 'jistr/vim-nerdtree-tabs'    Testing deactivating this plugin; if
+"everything is ok, remove it, else put it back
 Plugin 'easymotion/vim-easymotion'
-Plugin 'derekwyatt/vim-scala'
 Plugin 'haoyu953/pride.vim'
 Plugin 'arcticicestudio/nord-vim'
-Plugin 'dermusikman/sonicpi.vim'
 Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'supercollider/scvim'
 Plugin 'dart-lang/dart-vim-plugin'
 Plugin 'AlxndrPsclt/vim-airline-themes'
-
+Plugin 'junegunn/fzf.vim.git'
+Plugin 'ap/vim-css-color.git'
 
 
 call vundle#end()
+
+set clipboard+=unnamedplus
 
 syntax on
 
@@ -163,9 +165,6 @@ endif
 "Toggle RainbowParenthese
 nmap <silent> <leader>r :RainbowParenthesesToggle<CR>
 
-
-"Toggle RainbowParenthese
-nmap <silent> <leader>r :RainbowParenthesesToggle<CR>
 
 "Permet d'afficher toujours le nom du fichier en bas
 set modeline
@@ -291,4 +290,69 @@ au BufWritePost * if getline(1) =~ "^#!" | if getline(1) =~ "/bin/" | silent exe
 noremap gf :tabe <cfile><CR>
 
 " Run xrdb whenever Xdefaults or Xresources are updated.
-	autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
+autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
+
+"ommenting blocks of code.
+autocmd FileType c,cpp,java,scala let b:comment_leader = '// '
+autocmd FileType sh,ruby,python   let b:comment_leader = '# '
+autocmd FileType conf,fstab       let b:comment_leader = '# '
+autocmd FileType tex              let b:comment_leader = '% '
+autocmd FileType mail             let b:comment_leader = '> '
+autocmd FileType vim              let b:comment_leader = '" '
+noremap <silent> ,cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
+noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
+
+nmap <leader>n 0yyp<C-a>
+
+
+nmap <leader>l :Lines<CR>
+nmap <leader>b :Buffers<CR>
+
+
+imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-f> <plug>(fzf-complete-path)
+
+let @n = '0yyp'
+
+
+" Ag / git grep
+function! s:ag_to_qf(line)
+  let parts = split(a:line, ':')
+  return { 'filename': parts[0]
+         \,'lnum': parts[1]
+         \,'col': parts[2]
+         \,'text': join(parts[3:], ':')
+         \ }
+endfunction
+
+function! s:ag_handler(lines)
+  if len(a:lines) < 2 | return | endif
+  let cmd = get({ 'ctrl-x': 'split'
+                \,'ctrl-v': 'vertical split'
+                \,'ctrl-t': 'tabe'
+                \ } , a:lines[0], 'e' )
+  let list = map(a:lines[1:], 's:ag_to_qf(v:val)')
+  let first = list[0]
+  execute cmd escape(first.filename, ' %#\')
+  execute first.lnum
+  execute 'normal!' first.col.'|zz'
+  if len(list) > 1
+    call setqflist(list)
+    copen
+    wincmd p
+  endif
+endfunction
+
+command! -nargs=* Find call fzf#run({
+\ 'source':  printf('ag --nogroup --column --color "%s"',
+\                   escape(empty(<q-args>) ? '^(?=.)' : <q-args>, '"\')),
+\ 'sink*':    function('<sid>ag_handler'),
+\ 'options': '--ansi --expect=ctrl-t,ctrl-v,ctrl-x --delimiter : --nth 4.. '.
+\            '--multi --bind=ctrl-a:select-all,ctrl-d:deselect-all '.
+\            '--color hl:68,hl+:110 -x',
+\ 'down':    '50%'
+\ })
+
+" Find string inside the CWD
+nnoremap <leader>f :silent! Find <C-R><C-W>
+vnoremap <leader>f y:silent Find <C-R>"<CR>

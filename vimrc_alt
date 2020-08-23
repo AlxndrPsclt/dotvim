@@ -144,8 +144,8 @@ set undoreload=10000 "maximum number lines to save for undo on a buffer reload"
 
 " Toggle spell checking on and off with `,s`
 nmap <silent> <leader>s :set spell!<CR>
-nmap <silent> <leader>se :set spelllang=en<CR>
-nmap <silent> <leader>sf :set spelllang=fr<CR>
+nmap <silent> <leader>se :set spelllang=en<CR>:echo "en"<CR>
+nmap <silent> <leader>sf :set spelllang=fr<CR>:echo "fr"<CR>
 set spell!
 
 "Correct the next erroronous with the first suggested correction
@@ -234,5 +234,6 @@ set shortmess=F
 autocmd BufEnter * let &titlestring = "FocusVim"
 set title
 
+nnoremap <S-h> :call ToggleHiddenAll()<CR>
 
 autocmd VimLeave * :mksession! ~/.vim/sessions/focus.vim
