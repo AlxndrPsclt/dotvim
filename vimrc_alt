@@ -212,7 +212,7 @@ let g:session_autoload = 'yes'
 set pastetoggle=<leader>p
 
 autocmd VimEnter * Limelight
-autocmd VimEnter * Goyo 61%x95
+autocmd VimEnter * Goyo 70%x95
 
 
 highlight EndOfBuffer ctermfg=236
