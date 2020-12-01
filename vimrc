@@ -18,7 +18,7 @@ Plugin 'honza/vim-snippets'
 Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'kshenoy/vim-signature'
-Plugin 'scrooloose/nerdtree'
+"Plugin 'scrooloose/nerdtree'
 Plugin 'simnalamburt/vim-mundo'
 Plugin 'mbbill/undotree'
 Plugin 'terryma/vim-multiple-cursors'
@@ -38,7 +38,7 @@ Plugin 'tpope/vim-abolish'
 Plugin 'rking/ag.vim'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-session'
-Plugin 'EvanDotPro/nerdtree-chmod'
+"Plugin 'EvanDotPro/nerdtree-chmod'
 Plugin 'djoshea/vim-autoread'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'tmux-plugins/vim-tmux-focus-events'
@@ -139,11 +139,6 @@ imap <F2> jj :MundoToggle<CR>
 nmap <F2> :MundoToggle<CR>
 nmap <leader>u :MundoToggle<CR>
 
-"Racourcis pour Nerdtree
-imap <F1> jj :NERDTreeTabsToggle<CR>
-nmap <F1> :NERDTreeTabsToggle<CR>
-nmap <leader>f :NERDTreeTabsToggle<CR>
-"noremap <F1> :NERDTreeToggle<CR>
 
 "##Working with Splits"
 "###Create new splits in a more natural way than vim defaults"
@@ -158,8 +153,8 @@ nmap <right> :wincmd l<CR>
 
 "Resizing windows with + and -
 if bufwinnr(1)
-	map + <C-W>>
-	map - <C-W><
+  map + <C-W>>
+  map - <C-W><
 endif
 
 "Toggle RainbowParenthese
@@ -179,7 +174,7 @@ set undoreload=10000 "maximum number lines to save for undo on a buffer reload"
 
 " Source the vimrc file after saving it
 if has("autocmd")
-	autocmd bufwritepost .vimrc source $MYVIMRC
+  autocmd bufwritepost .vimrc source $MYVIMRC
 endif
 
 "Edit the vimrc with leader v
@@ -224,11 +219,11 @@ nmap <leader>c :inoremap <lt>Space> <lt>Space><lt>Esc>:iunmap <lt>lt>Space><lt>C
 nnoremap <leader>j :jumps<CR>
 
 function! NumberToggle()
-	if(&relativenumber == 1)
-		set number
-	else
-		set relativenumber
-	endif
+  if(&relativenumber == 1)
+    set number
+  else
+    set relativenumber
+  endif
 endfunc
 
 " tabs to naviagate in ultiSnips instead of c-j, c-k
@@ -253,7 +248,7 @@ command W w !sudo tee % > /dev/null
 
 
 function Ccase() range
-	echo system('echo '.shellescape(join(getline(a:firstline, a:lastline), "\n")).'| ~/.vim/scripts/ccase.py')
+  echo system('echo '.shellescape(join(getline(a:firstline, a:lastline), "\n")).'| ~/.vim/scripts/ccase.py')
 endfunction
 
 set hlsearch
@@ -262,9 +257,9 @@ set hlsearch
 "Adding ctrlp tabs:
 let g:ctrlp_extensions = ['smarttabs']
 let g:ctrlp_prompt_mappings = {
-    \ 'AcceptSelection("e")': ['<2-LeftMouse>'],
-    \ 'AcceptSelection("t")': ['<cr>'],
-    \ }
+      \ 'AcceptSelection("e")': ['<2-LeftMouse>'],
+      \ 'AcceptSelection("t")': ['<cr>'],
+      \ }
 nmap O :CtrlP<CR>
 
 
@@ -319,18 +314,18 @@ let @n = '0yyp'
 function! s:ag_to_qf(line)
   let parts = split(a:line, ':')
   return { 'filename': parts[0]
-         \,'lnum': parts[1]
-         \,'col': parts[2]
-         \,'text': join(parts[3:], ':')
-         \ }
+        \,'lnum': parts[1]
+        \,'col': parts[2]
+        \,'text': join(parts[3:], ':')
+        \ }
 endfunction
 
 function! s:ag_handler(lines)
   if len(a:lines) < 2 | return | endif
   let cmd = get({ 'ctrl-x': 'split'
-                \,'ctrl-v': 'vertical split'
-                \,'ctrl-t': 'tabe'
-                \ } , a:lines[0], 'e' )
+        \,'ctrl-v': 'vertical split'
+        \,'ctrl-t': 'tabe'
+        \ } , a:lines[0], 'e' )
   let list = map(a:lines[1:], 's:ag_to_qf(v:val)')
   let first = list[0]
   execute cmd escape(first.filename, ' %#\')
@@ -344,14 +339,14 @@ function! s:ag_handler(lines)
 endfunction
 
 command! -nargs=* Find call fzf#run({
-\ 'source':  printf('ag --nogroup --column --color "%s"',
-\                   escape(empty(<q-args>) ? '^(?=.)' : <q-args>, '"\')),
-\ 'sink*':    function('<sid>ag_handler'),
-\ 'options': '--ansi --expect=ctrl-t,ctrl-v,ctrl-x --delimiter : --nth 4.. '.
-\            '--multi --bind=ctrl-a:select-all,ctrl-d:deselect-all '.
-\            '--color hl:68,hl+:110 -x',
-\ 'down':    '50%'
-\ })
+      \ 'source':  printf('ag --nogroup --column --color "%s"',
+      \                   escape(empty(<q-args>) ? '^(?=.)' : <q-args>, '"\')),
+      \ 'sink*':    function('<sid>ag_handler'),
+      \ 'options': '--ansi --expect=ctrl-t,ctrl-v,ctrl-x --delimiter : --nth 4.. '.
+      \            '--multi --bind=ctrl-a:select-all,ctrl-d:deselect-all '.
+      \            '--color hl:68,hl+:110 -x',
+      \ 'down':    '50%'
+      \ })
 
 " Find string inside the CWD
 nnoremap <leader>f :silent! Find <C-R><C-W>
