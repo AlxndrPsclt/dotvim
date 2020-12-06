@@ -1,0 +1,20 @@
+snippet notes "header of personal note taking system"
+/NOTES/V1
+
+TITLE: ${1:CR de réunion générale}
+DATE: `date +%d`-`date +%m`-`date +%Y`
+PRESENT${2}
+
+---
+${3}
+endsnippet
+
+snippet PRESENT "Opens dmenu to select people who are present"
+PRESENT: `/tmp/choose.sh`
+endsnippet
+
+snippet DATA "yaml entry"
+\`\`\`yml
+${1}
+\`\`\`
+endsnippet

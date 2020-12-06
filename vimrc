@@ -79,8 +79,8 @@ filetype plugin on
 set backupdir=/tmp
 set directory=/tmp
 
-"Utiliser des tabulations de longueur 4
-set ts=2 sts=2 sw=2 noexpandtab
+"Utiliser des tabulations de longueur 2
+set ts=2 sts=2 sw=2 expandtab
 
 " Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:▸\ ,eol:¬
@@ -208,6 +208,8 @@ nnoremap <leader>cwf :let @"=expand("%")<CR>
 " directory name (/something/src)
 nnoremap <leader>cwd :let @"=expand("%:p:h")<CR>
 
+" replace selected
+vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>"
 
 
 
@@ -285,7 +287,7 @@ au BufWritePost * if getline(1) =~ "^#!" | if getline(1) =~ "/bin/" | silent exe
 noremap gf :tabe <cfile><CR>
 
 " Run xrdb whenever Xdefaults or Xresources are updated.
-autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
+" autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
 
 "ommenting blocks of code.
 autocmd FileType c,cpp,java,scala let b:comment_leader = '// '
@@ -297,17 +299,15 @@ autocmd FileType vim              let b:comment_leader = '" '
 noremap <silent> ,cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
 noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
 
-nmap <leader>n 0yyp<C-a>
+"nmap <leader>n 0yyp<C-a>
 
 
 nmap <leader>l :Lines<CR>
 nmap <leader>b :Buffers<CR>
 
 
-imap <c-x><c-k> <plug>(fzf-complete-word)
-imap <c-x><c-f> <plug>(fzf-complete-path)
-
-let @n = '0yyp'
+"imap <c-x><c-k> <plug>(fzf-complete-word)
+"imap <c-x><c-f> <plug>(fzf-complete-path)
 
 
 " Ag / git grep
@@ -351,3 +351,14 @@ command! -nargs=* Find call fzf#run({
 " Find string inside the CWD
 nnoremap <leader>f :silent! Find <C-R><C-W>
 vnoremap <leader>f y:silent Find <C-R>"<CR>
+
+nnoremap <Tab> za
+nnoremap <S-Tab> zr
+
+let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'yml']
+
+set foldmethod=indent
+set nofoldenable
+
+vmap <Esc>[1;6A [egv
+vmap <Esc>[1;6B ]egv
