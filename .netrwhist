@@ -1,3 +1,12 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =1
-let g:netrw_dirhist_1='/home/alex/documents/creations/prog/brn-aftr-rdng'
+let g:netrw_dirhistcnt =0
+let g:netrw_dirhist_0='/home/alex/documents/flow/mvp/webapp'
+let g:netrw_dirhist_9='/home/alex/documents/flow/mvp'
+let g:netrw_dirhist_8='/home/alex/documents/flow/mvp/webapp'
+let g:netrw_dirhist_7='/home/alex/documents/flow/mvp/webapp/.git'
+let g:netrw_dirhist_6='/home/alex/atelier/flow/flow-mvp/src'
+let g:netrw_dirhist_5='/home/alex/documents/flow/mvp/bracelets/qrcodesnew/generated/etiquette'
+let g:netrw_dirhist_4='/home/alex/atelier/qrcodes/test/etiquette'
+let g:netrw_dirhist_3='/home/alex/documents/flow/mvp/webapp/volumes/vuejs/app/src/views'
+let g:netrw_dirhist_2='/home/alex/documents/flow/mvp/webapp/volumes/vuejs/app/src/router'
+let g:netrw_dirhist_1='/home/alex/documents/flow/mvp/webapp/volumes/vuejs/app/src/components'

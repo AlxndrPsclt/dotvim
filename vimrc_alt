@@ -10,7 +10,7 @@ call vundle#begin()
 "Plugin 'gmarik/vundle'
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'junegunn/goyo.vim'
+"Plugin 'junegunn/goyo.vim'
 Plugin 'junegunn/limelight.vim'
 Plugin 'arcticicestudio/nord-vim'
 
@@ -68,6 +68,7 @@ Plugin 'tpope/vim-surround'
 "Plugin 'dermusikman/sonicpi.vim'
 "Plugin 'ekalinin/Dockerfile.vim'
 "Plugin 'supercollider/scvim'
+Plugin 'vimwiki/vimwiki.git'
 
 call vundle#end()
 
@@ -137,7 +138,7 @@ endif
 
 set undodir=~/.vim/undodir
 set undofile
-set undolevels=1000 "maximum number of changes that can be undone
+set undolevels=10000 "maximum number of changes that can be undone
 set undoreload=10000 "maximum number lines to save for undo on a buffer reload"
 
 
@@ -178,21 +179,13 @@ nnoremap <leader>cwd :let @"=expand("%:p:h")<CR>
 nnoremap <leader>j :jumps<CR>
 
 " tabs to naviagate in ultiSnips instead of c-j, c-k
-let g:UltiSnipsExpandTrigger="<tab>"
+"let g:UltiSnipsExpandTrigger="<tab>"
 "let g:UltiSnipsJumpForwardTrigger="<c-a>"
 "let g:UltiSnipsJumpBackwardTrigger="<c-s>"
 
 "Edit snippets in a vertical snip
-let g:UltiSnipsEditSplit="vertical"
+"let g:UltiSnipsEditSplit="vertical"
 
-
-" Start interactive EasyAlign in visual mode (e.g. vipga)
-xmap ga <Plug>(EasyAlign)
-
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
-
-imap <leader>l <C-x><C-o>
 
 "A command to allow saving a file using sudo even if you didn't use sudo vim
 command W w !sudo tee % > /dev/null
@@ -201,18 +194,16 @@ command W w !sudo tee % > /dev/null
 set hlsearch
 
 "Adding ctrlp tabs:
-let g:ctrlp_extensions = ['smarttabs']
+"let g:ctrlp_extensions = ['smarttabs']
 
 
 let g:session_default_name = 'focus'
-let g:session_autosave = 'yes'
-let g:session_autoload = 'yes'
 
 "Paste toggle to allow clean pasting without useless auto indentation
 set pastetoggle=<leader>p
 
 autocmd VimEnter * Limelight
-autocmd VimEnter * Goyo 70%x95
+"autocmd VimEnter * Goyo 80%x100
 
 
 highlight EndOfBuffer ctermfg=236
@@ -236,4 +227,15 @@ set title
 
 nnoremap <S-h> :call ToggleHiddenAll()<CR>
 
+"nnoremap <Esc> :wq<CR>
+
+let wiki_1 = {}
+let wiki_1.path = '~/documents/2brain'
+let wiki_1.syntax = 'markdown'
+let wiki_1.ext = '.md'
+
+let g:vimwiki_list = [wiki_1]
+"let g:vimwiki_list = [{'path':'~/documents/2brain', 'path_html':'~/documents/html/'}]
+
+autocmd BufNewFile */diary/[0-9]*.md :silent 0r !echo "\# `date +'\%Y-\%m-\%d'`"
 autocmd VimLeave * :mksession! ~/.vim/sessions/focus.vim

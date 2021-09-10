@@ -61,6 +61,7 @@ Plugin 'dart-lang/dart-vim-plugin'
 Plugin 'AlxndrPsclt/vim-airline-themes'
 Plugin 'junegunn/fzf.vim.git'
 Plugin 'ap/vim-css-color.git'
+"Plugin 'vimwiki/vimwiki.git'
 
 
 call vundle#end()
