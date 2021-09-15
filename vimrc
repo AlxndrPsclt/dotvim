@@ -363,3 +363,11 @@ set nofoldenable
 
 vmap <Esc>[1;6A [egv
 vmap <Esc>[1;6B ]egv
+
+
+set wildignore+=*/.git/*,*/db/*,*/node_modules/*
+
+
+map <Right> :bn<cr>
+map <Left> :bp<cr>
+map bd :bd<cr>

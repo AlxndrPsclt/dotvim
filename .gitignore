@@ -1,4 +1,4 @@
 undodir/*
 bundle/**
 sessions/
-
+.netrwhist
